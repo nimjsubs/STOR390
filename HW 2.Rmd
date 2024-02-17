@@ -1,0 +1,67 @@
+---
+title: "HW 2 Student"
+author: "Nimalan Subramanian"
+date: "2/15/2024"
+output: 
+  html_document:
+    number_sections: true
+---
+
+This homework is meant to illustrate the methods of classification algorithms as well as their potential pitfalls.  In class, we demonstrated K-Nearest-Neighbors using the `iris` dataset.  Today I will give you a different subset of this same data, and you will train a KNN classifier.  
+
+```{r, echo = FALSE}
+set.seed(123)
+library(class)
+
+df <- data(iris) 
+
+normal <-function(x) {
+  (x -min(x))/(max(x)-min(x))   
+}
+
+iris_norm <- as.data.frame(lapply(iris[,c(1,2,3,4)], normal))
+
+subset <- c(1:45, 58, 60:70, 82, 94, 110:150)
+iris_train <- iris_norm[subset,] 
+iris_test <- iris_norm[-subset,] 
+
+iris_target_category <- iris[subset,5]
+iris_test_category <- iris[-subset,5]
+
+
+```
+
+#
+Above, I have given you a training-testing partition.  Train the KNN with $K = 5$ on the training data and use this to classify the 50 test observations.  Once you have classified the test observations, create a contingency table -- like we did in class -- to evaluate which observations your algorithm is misclassifying.   
+
+```{r}
+set.seed(123)
+#STUDENT INPUT
+knn_train <- knn(iris_train, iris_test, cl = iris_target_category, k = 5)
+tab <- table(knn_train, iris_test_category)
+tab
+
+# Accuracy
+accuracy <- function(x){
+  sum(diag(x))/(sum(rowSums((x))))*100
+}
+
+accuracy(tab)
+
+# Summarize test and target categories
+summary(iris_test_category)
+summary(iris_target_category)
+```
+
+#
+
+Discuss your results.  If you have done this correctly, you should have a classification error rate that is roughly 20% higher than what we observed in class.  Why is this the case? In particular run a summary of the `iris_test_category` as well as `iris_target_category` and discuss how this plays a role in your answer.  
+
+Based on the contingency table for the 50 test observations, 5 setosa, 25 versicolor, and 9 virginica are classified correctly. However, there are 11 cases of missclassification between virginica and versicolor. When running a function to see the accuracy of the classifications, we can see that it is 78%, yielding a classification error that is around 20% higher than what was observed in class. Furthermore, running a summary of the test category and target category variables lets us see the disparity between the two sets. For example, setosa and virginica have lower values in the test category (5 and 9 respectively), while having values of 45 and 41 in the target category variable. However, versicolor is shown to have a large value in the test category at 36 compared to a lower target category value of 14. This also shows signs of imbalances between classes, which can contribute to disparity in values, particularly between setosa and virginica compared to versicolor. Finally, as seen by the scatter plots created in class, there is an overlap between versicolor and virginica, which can contribute to misclassification, particularly between these two categories.
+
+#
+
+Build a github repository to store your homework assignments.  Share the link in this file.  
+
+https://github.com/nimjsubs/STOR390
+
