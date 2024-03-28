@@ -1,0 +1,28 @@
+---
+title: "HW 5"
+author: "Nimalan Subramanian"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  pdf_document: default
+  html_document:
+    number_sections: true
+---
+
+This homework is meant to give you practice in creating and defending a position with both statistical and philosophical evidence.  We have now extensively talked about the COMPAS ^[https://www.propublica.org/datastore/dataset/compas-recidivism-risk-score-data-and-analysis] data set, the flaws in applying it but also its potential upside if its shortcomings can be overlooked.  We have also spent time in class verbally assessing positions both for an against applying this data set in real life.  In no more than two pages ^[knit to a pdf to ensure page count] take the persona of a statistical consultant advising a judge as to whether they should include the results of the COMPAS algorithm in their decision making process for granting parole.  First clearly articulate your position (whether the algorithm should be used or not) and then defend said position using both statistical and philosophical evidence.  Your paper will be grade both on the merits of its persuasive appeal but also the applicability of the statistical and philosohpical evidence cited.  
+
+
+# A Statistical & Philosophical Evaluation of COMPAS
+As a statistical consultant, my job is to advise on how effective algorithms are and the moral implications of such algorithms. In this instance, I would like to evaluate the Correctional Offender Management Profiling for Alternative Sanctions (COMPAS) algorithm. Developed by Northpointe Inc, this tool is meant to assess the likelihood that a defendant becomes a recidivist. However, I would like to present the case that the COMPAS tool is not a tool that should be given significance for the decision-making process due to notes of statistical bias and philosophical concerns.
+
+## Statistical Bias
+One of the major evidences against the use of COMPAS is the disparity between the rate of false positives between black defendants and white defendants. 45% of black defenders were labeled as high risk but did not re-offend, compared to 23% of white defendants. This is close to double the rate of false positives for black defendants compared to their white counterparts, demonstrating that racial bias is used in the risk assessment. While Northpointe claims that race is not a factor used in determining recidivism, there are proxy variables that implicate race, such as ZIP code. Apart from this, the rate at which the algorithms predicts correctly is only slightly above chance, at 0.59. This is barely above the 0.5 average, random chance mark, so I would still like to question the reliability of the tool's predictive capability.
+
+## Philosophical Stance
+As observed by the statistical evidence demonstrating the disparity in false positive rates and the barely above chance predictive rate of the tool, questions of justice and fairness arise. COMPAS presents a case of arbitrary discrimination. This plays a role in algorithm bias, and in turn presents several harms. This includes the self-fulfilling prophecy, overgeneralization, and implications that are insidious, unfair, and irrelevant. 
+
+When considering the difficulty in assessing the COMPAS tool's fairness and accuracy, the proprietary nature of the algorithm brings up an issue of transparency. A lack of critique on the tool and how it works challenges the accountability of the tool for its bias and inaccuracies, particularly in regards to the lack on information on which factors and methods contribute to the prediction process. This blackbox approach contradicts the justice system's notion for openness.
+
+Reliance on a predictive tool that is not able to consider each individual's unique circumstances and potential to be change neglects core principles of justice that prioritize personal growth and redemption. By using a tool that does not consider individuality, rehabilitative goals of justice is undermined and individuals are reduced to data points rather than humans who are capable of change. Finally, the tool should only be one factor that contributes to the decision-making of the judge and not a tool that overpowers the judgement of the judge. Such tools are not capable of considering such human logic and emotion; that is why the final decision-making power is in the hands of a judge and the jury; the tool is simply a supplement material in this human process.
+
+## Concluding Statement
+In conclusion, the evidence from the analysis of the COMPAS tool demonstrates racial biases and inaccuracies in the tool's predictions that raise concerns of fairness, transparency and overall justice. The disparity in false positive rates of black defendants compared to white defendants undermines the values of fairness and equality. From a philosophical perspective, relying on a flawed predictive tool goes against individuality and the potential for change that should be considered in recidivism. Using the COMPAS tool in the decision-making process places a risk of such injustices.
